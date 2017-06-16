@@ -1,11 +1,54 @@
 # webpack-babel-react-boilerplate
 Just read the title without the dashes ;)
 
+## Quick Install
+In order to save time and install it quicker you can copy this
+```
+ git clone git://github.com/lucascassiano/webpack-babel-react-boilerplate
+ cd webpack-babel-react-boilerplate
+```
+
+### Config Babel
+create file .babelrc
+```
+touch .babelrc
+```
+and then using a text editor add:
+```
+/* .babelrc */
+{
+    "presets":[
+        "es2015", "react"
+    ]
+}
+
+```
+
+### Install dependencies and run
+```
+npm install && npm start
+```
+This boilerplate is running webpack 2, so you can change the default port to any number (usually higher than 1024)
+```
+npm start --port 80
+```
+
+### Compiling Bundle
+```
+npm run build
+```
+it will create an compiled app at ./dist
+to serve it see the serving options bellow.
+
+#References:
 https://scotch.io/tutorials/setup-a-react-environment-using-webpack-and-babel
 
 https://www.codementor.io/tamizhvendan/beginner-guide-setup-reactjs-environment-npm-babel-6-webpack-du107r9zr
 
-Create the project
+# Advanced (slow) Install
+
+## Create the project 
+create the directory and init npm (define the project name, author etc..)
 ```
 mkdir myApp
 cd myApp
@@ -33,7 +76,7 @@ const path = require('path');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
-  template: './client/index.html',
+  template: './src/index.html',
   filename: 'index.html',
   inject: 'body'
 })
@@ -69,8 +112,7 @@ performance: {
 
 ```
 
-
-## Babel config
+## Babel setup
 ```
 babel-loader babel-core babel-preset-es2015 babel-preset-react
 ```
@@ -106,9 +148,4 @@ npm instal -g pm2
 sudo pm2 start serve --name "myapp" -- -s build
 ```
 
-## Fast Track
-In order to save time and install it quicker you can copy this
-```
- git clone git://github.com/lucascassiano/webpack-babel-react-boilerplate
-```
-create file
+
